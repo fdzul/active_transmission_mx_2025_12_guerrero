@@ -1,0 +1,89 @@
+---
+title: "Programa de Prevención & Control del Dengue | 2025"
+format: 
+  dashboard:
+      nav-buttons: [twitter, github, facebook]
+theme: custom.scss
+---
+
+```{r setup}
+library(sf)
+mapview::mapviewOptions(default = TRUE,
+                        basemaps.color.shuffle = FALSE)
+load("/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2025/8.RData/denmex_2025.RData")
+library(magrittr)
+```
+
+
+# [**Cadenas de Transmisión**]{style="font-size:8pt"}
+
+::: panel-tabset
+### [**Acapulco**]{style="color:#990000"}
+
+```{r}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "12",
+                                     locality = "Acapulco de Juarez",
+                                     dengue_cases = "Confirmado")
+
+```
+
+
+:::
+
+
+# [**Mapas de Calor**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+### [**Acapulco**]{style="color:#990000"}
+
+```{r}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "12",
+                   locality = "Acapulco de Juarez",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+
+### [**Chilpancingo**]{style="color:#990000"}
+
+```{r}
+densnv::mp_heatmap(geocoded_datasets = z,
+                   cve_edo = "12",
+                   locality = "Chilpancingo de los Bravo",
+                   status_caso = c(1, 2),
+                   week = c(1:53),
+                   zoom = NULL,
+                   map_type = NULL,
+                   alpha = 0.6,
+                   static = FALSE,
+                   palette = viridis::turbo)
+```
+
+
+:::
+
+
+
+# [**Log-Gaussian Cox Processes**]{style="font-size:8pt"}
+
+::: panel-tabset
+
+### [**Acapulco**]{style="color:#990000"}
+
+Los casos de dengue hasta la presente fecha son insuficientes para correr el modelo espacial Log Gaussian Cox Processes, hay que esperar hasta que el tamaño de muestra sea adecuado para implementar este modelo.
+
+
+### [**Chilpancingo**]{style="color:#990000"}
+
+Los casos de dengue hasta la presente fecha son insuficientes para correr el modelo espacial Log Gaussian Cox Processes, hay que esperar hasta que el tamaño de muestra sea adecuado para implementar este modelo.
+
+
+:::
