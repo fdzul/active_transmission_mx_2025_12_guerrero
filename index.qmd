@@ -20,10 +20,21 @@ library(magrittr)
 ::: panel-tabset
 ### [**Acapulco**]{style="color:#990000"}
 
-```{r}
+```{r chains_acapulco}
 denhotspots::transmission_chains_map(geocoded_dataset = z,
                                      cve_edo = "12",
                                      locality = "Acapulco de Juarez",
+                                     dengue_cases = "Confirmado")
+
+```
+
+
+### [**Chilpancingo**]{style="color:#990000"}
+
+```{r chains_chilpo}
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "12",
+                                     locality = "Chilpancingo de los Bravo",
                                      dengue_cases = "Confirmado")
 
 ```
